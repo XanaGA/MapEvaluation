@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<launch>
+    
+    <!-- Broadcaster of the map-odom transform -->
+    <node pkg="transform_broadcasters" type="map_odom_broadcaster" name="map_odom_broadcaster"/>
+       
+
+    <!-- Broadcaster of the gworld-map transform -->
+    <node pkg="transform_broadcasters" type="gworld_map_broadcaster" name="gworld_map_broadcaster">
+        <param name="robot_model_name" value="/"/>
+        <param name="world_model_name" value="agriculture_geom"/>
+    </node>
+
+    <!-- Broadcaster of the map-odom transform -->
+    <node pkg="transform_broadcasters" type="odom_baselink_broadcaster" name="odom_baselink_broadcaster">
+        <param name="robot_model_name" value="/"/>
+        <param name="robot_model_index" value="-1"/>
+    </node>
+
+</launch>

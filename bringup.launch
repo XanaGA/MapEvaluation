@@ -1,0 +1,21 @@
+<launch>
+    <arg name="teleop" default="true" />
+
+    <!-- <node name="agriculture_world_spawner" pkg="gazebo_ros" type="spawn_model" args="-urdf -model agriculture_geom -param agriculture_geom -x 0 -y 0 -z 0 -Y 0" /> -->
+
+    <include file="$(find cpr_agriculture_gazebo)/launch/agriculture_world.launch">
+      <arg name="platform" value="husky" />
+    </include>
+
+    
+    <include file="$(find agriculture_launcher)/robot_localization/localization_local.launch"/>
+    <include file="$(find agriculture_launcher)/robot_localization/localization_global.launch"/>
+    <!--
+    <include file="$(find agriculture_launcher)/robot_localization/truth_localization.launch"/> -->
+
+    <include file="$(find agriculture_launcher)/rtabmap/rtabmap_simulation_x.launch"/> 
+    <!--<include file="$(find agriculture_launcher)/rtabmap/rtabmap_simulation_xperfect.launch"/> -->
+   
+    <!-- <include file="$(find agriculture_launcher)/octomap/octomap_server_start.launch"/> -->
+
+</launch>
