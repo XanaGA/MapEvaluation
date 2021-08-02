@@ -7,15 +7,13 @@
       <arg name="platform" value="husky" />
     </include>
 
-    
-    <include file="$(find agriculture_launcher)/robot_localization/localization_local.launch"/>
-    <include file="$(find agriculture_launcher)/robot_localization/localization_global.launch"/>
     <!--
-    <include file="$(find agriculture_launcher)/robot_localization/truth_localization.launch"/> -->
+    <include file="$(find agriculture_launcher)/robot_localization/localization_local.launch"/>
+    <include file="$(find agriculture_launcher)/robot_localization/localization_global.launch"/>-->
+    
+    <include file="$(find agriculture_launcher)/robot_localization/truth_localization.launch"/> 
 
-    <include file="$(find agriculture_launcher)/rtabmap/rtabmap_simulation_x.launch"/> 
-    <!--<include file="$(find agriculture_launcher)/rtabmap/rtabmap_simulation_xperfect.launch"/> -->
-   
-    <!-- <include file="$(find agriculture_launcher)/octomap/octomap_server_start.launch"/> -->
+    <!--<include file="$(find agriculture_launcher)/rtabmap/rtabmap_simulation_x40.launch"/> -->
+    <include file="$(find agriculture_launcher)/rtabmap/rtabmap_simulation_xperfect.launch"/> 
 
 </launch>
