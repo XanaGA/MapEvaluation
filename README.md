@@ -53,7 +53,12 @@ Takes as imput the path to the ground truth .pgm file, the path to the .pgm file
 
 * **resolution**: Resolution of the maps (should be the SAME for all maps and the ground truth)
 
-* **metrics**: Metrics that we want to be computed (in the script is passed as a list, in the command line just type the name of the metrics you are interested in separated by a space). OPTIONS: 'error'(count of the cells misclasified), 'accuracy', 'precision', 'recall' and 'F1' (F1-score).
+* **metrics**: Metrics that we want to be computed (in the script is passed as a list, in the command line just type the name of the metrics you are interested in separated by a space). OPTIONS: 
+	- 'error'(count of the cells misclasified)
+	- 'accuracy'
+	- 'precision'
+	- 'recall' 
+	- 'F1' (F1-score).
 
 * You can find specific information of this parameters and the way they are passed through the console by using the -h option (as showed below).
 
