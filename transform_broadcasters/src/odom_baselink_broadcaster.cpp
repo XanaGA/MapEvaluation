@@ -69,8 +69,22 @@ public:
 
     void get_gazebo_map_transform(){
     	// Get the transform from the map to the gazeboWorld
-		this->listener.waitForTransform("/gazebo_world", "/map", ros::Time(0), ros::Duration(10.0));
-		this->listener.lookupTransform("/gazebo_world", "/map", ros::Time(0), this->map_gazeboWorld_transform);
+    	/* 
+    	Explanation (THIS IS A HELL OF AN API): 
+    		1- In waitForTransform() and lookupTransform() the first argument is the target frame and the second the source frame.
+    		2- But this will return the transform to transform the points in the source frame to the target frame, what is the inverse
+    		of the transformation from the source frame to the target frame.
+			3- As we are interested in the transform between frames we will ask directly for the invers transformation, asking directly
+			for the transform from the target to the source frame.
+
+			In particular:
+			lookupTransform("/map", "/gazebo_world") will return the transformation to transform point in /gazebo_world frame 
+			to /map frame, so it is the invers of the transformation of the /gazebo_world frame to the /map frame, 
+			which the transformation between /map and /gazebo_world frame (What we want!) 
+			
+    	*/
+		this->listener.waitForTransform("/map", "/gazebo_world", ros::Time(0), ros::Duration(10.0));
+		this->listener.lookupTransform("/map", "/gazebo_world", ros::Time(0), this->map_gazeboWorld_transform);
     }
 
     void transformBroadcasting(){
@@ -119,7 +133,7 @@ public:
     void run(){
 		
 		// Set a loop_rate to publish the transforms
-        ros::Rate loop_rate(1000);
+        ros::Rate loop_rate(10);
 
         // Subscribe to the gazebo topic to recieve the initial pose of the robot
         this->sub = this->node.subscribe("/gazebo/model_states", 1000, &OdomBaseBroadcaster::infoGazebo, this);
