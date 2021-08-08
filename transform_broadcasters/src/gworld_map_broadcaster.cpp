@@ -20,7 +20,7 @@ int main(int argc, char** argv){
 	//ROS_INFO("%s", robot_model_name.c_str());
 
 	// Initialize a ros::Rate object to publish at a certain frequency
-	ros::Rate loop_rate(10); 
+	ros::Rate loop_rate(100); 
 
 	// Create a broadcaster
 	static tf::TransformBroadcaster br;
@@ -50,11 +50,11 @@ int main(int argc, char** argv){
 		initial_pose.position.z) 
 	);
 
-  	tf::Quaternion q(
-  		initial_pose.orientation.x, 
-  		initial_pose.orientation.y, 
-  		initial_pose.orientation.z, 
-  		initial_pose.orientation.w
+  	tf::Quaternion q(0., 0., 0., 1.
+  		// initial_pose.orientation.x, 
+  		// initial_pose.orientation.y, 
+  		// initial_pose.orientation.z, 
+  		// initial_pose.orientation.w
   		);
 
   	gazeboWorld_map_transform.setRotation(q);

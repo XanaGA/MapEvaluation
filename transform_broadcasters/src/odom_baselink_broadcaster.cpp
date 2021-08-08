@@ -133,7 +133,7 @@ public:
     void run(){
 		
 		// Set a loop_rate to publish the transforms
-        ros::Rate loop_rate(10);
+        ros::Rate loop_rate(1000);
 
         // Subscribe to the gazebo topic to recieve the initial pose of the robot
         this->sub = this->node.subscribe("/gazebo/model_states", 1000, &OdomBaseBroadcaster::infoGazebo, this);
