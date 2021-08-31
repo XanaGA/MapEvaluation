@@ -153,7 +153,7 @@ def evaluate_maps(path_truth, paths_maps, resolution, metrics, mode='intersectio
     yaml_file_path = path_truth[:-3] + 'yaml'
     yaml_file = open(yaml_file_path)
     parsed_yaml_file = yaml.safe_load(yaml_file)
-    coord_truth = np.array(parsed_yaml_file['origin'])[:-1]
+    coord_truth = np.array(parsed_yaml_file['origin'], dtype='float32')[:-1]
     
     for i in range(len(paths_maps)):
         map_im = Image.open(paths_maps[i])   # Read map image
@@ -164,7 +164,7 @@ def evaluate_maps(path_truth, paths_maps, resolution, metrics, mode='intersectio
         yaml_file_path = paths_maps[i][:-3] + 'yaml'
         yaml_file = open(yaml_file_path)
         parsed_yaml_file = yaml.safe_load(yaml_file)
-        coord_map = np.array(parsed_yaml_file['origin'])[:-1]
+        coord_map = np.array(parsed_yaml_file['origin'], dtype='float32')[:-1]
 
         # Align and resize the matrix to have the same shape
         # we can overwrite map_arr, but truth_arr should remain as the original

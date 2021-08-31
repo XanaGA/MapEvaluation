@@ -7,7 +7,7 @@ from mc_func import *
 
 if __name__ == "__main__":
 
-    ## Coment args declaration if you are using parameters_from_terminal()
+    # Coment args declaration if you are using parameters_from_terminal()
     # args = {'ground_truth':'/home/xavi/Pictures/perfect_map_0.pgm',
     #         'map_path':'/home/xavi/Pictures/testing',
     #         'file_dest':'/home/xavi/Pictures/test.pkl',
